@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teclado Completo con Imágenes</title>
+    <link rel="stylesheet" href="teclado.css">
+</head>
+<body>
+
+    <!-- Zona de texto para mostrar el resultado -->
+    <div id="input-area">
+        <textarea id="text-display" rows="4" cols="50" readonly></textarea>
+    </div>
+
+    <!-- Teclado con imágenes -->
+    <div id="keyboard">
+        <!-- Primera fila de teclas -->
+        <button class="key" data-value="Q"><img src="img/abecedario/q.jpg" alt="Tecla Q"></button>
+        <button class="key" data-value="W"><img src="img/abecedario/w.jpg" alt="Tecla W"></button>
+        <button class="key" data-value="E"><img src="img/abecedario/e.jpg" alt="Tecla E"></button>
+        <button class="key" data-value="R"><img src="img/abecedario/r.jpg" alt="Tecla R"></button>
+        <button class="key" data-value="T"><img src="img/abecedario/t.jpg" alt="Tecla T"></button>
+        <button class="key" data-value="Y"><img src="img/abecedario/y.jpg" alt="Tecla Y"></button>
+        <button class="key" data-value="U"><img src="img/abecedario/u.jpg" alt="Tecla U"></button>
+        <button class="key" data-value="I"><img src="img/abecedario/i.jpg" alt="Tecla I"></button>
+        <button class="key" data-value="O"><img src="img/abecedario/o.jpg" alt="Tecla O"></button>
+        <button class="key" data-value="P"><img src="img/abecedario/p.jpg" alt="Tecla P"></button>
+
+        <!-- Segunda fila de teclas -->
+        <button class="key" data-value="A"><img src="img/abecedario/a.jpg" alt="Tecla A"></button>
+        <button class="key" data-value="S"><img src="img/abecedario/s.jpg" alt="Tecla S"></button>
+        <button class="key" data-value="D"><img src="img/abecedario/d.jpg" alt="Tecla D"></button>
+        <button class="key" data-value="F"><img src="img/abecedario/f.jpg" alt="Tecla F"></button>
+        <button class="key" data-value="G"><img src="img/abecedario/g.jpg" alt="Tecla G"></button>
+        <button class="key" data-value="H"><img src="img/abecedario/h.jpg" alt="Tecla H"></button>
+        <button class="key" data-value="J"><img src="img/abecedario/j.jpg" alt="Tecla J"></button>
+        <button class="key" data-value="K"><img src="img/abecedario/k.jpg" alt="Tecla K"></button>
+        <button class="key" data-value="L"><img src="img/abecedario/l.jpg" alt="Tecla L"></button>
+        <button class="key" data-value="Ñ"><img src="img/abecedario/ñ.JPG" alt="Tecla Ñ"></button>
+
+        <!-- Tercera fila de teclas -->
+        <button class="key" data-value="Z"><img src="img/abecedario/z.jpg" alt="Tecla Z"></button>
+        <button class="key" data-value="X"><img src="img/abecedario/x.jpg" alt="Tecla X"></button>
+        <button class="key" data-value="C"><img src="img/abecedario/c.jpg" alt="Tecla C"></button>
+        <button class="key" data-value="V"><img src="img/abecedario/v.jpg" alt="Tecla V"></button>
+        <button class="key" data-value="B"><img src="img/abecedario/b.jpg" alt="Tecla B"></button>
+        <button class="key" data-value="N"><img src="img/abecedario/n.jpg" alt="Tecla N"></button>
+        <button class="key" data-value="M"><img src="img/abecedario/m.jpg" alt="Tecla M"></button>
+
+        <!-- Filas para números y funciones -->
+
+
+        <!-- Botones especiales -->
+        <button id="space-key" class="key" data-value=" "><p>Espacio</p></button>
+        <button id="delete-key" class="key"><p>Eliminar</p></button>
+    </div>
+
+    <!-- Botón para borrar todo el texto -->
+    <section id="regresar">
+        <button onclick="goToInicio()">Volver al Inicio</button>
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+<script>
+
+function goToInicio() {
+            window.location.href = "inicio.html";  <!-- Cambia "index.html" por la URL de tu página de inicio -->
+        }
+
+    document.querySelectorAll('.key').forEach(button => {
+    button.addEventListener('click', function() {
+        const value = this.getAttribute('data-value');
+        if (value) {
+            document.getElementById('text-display').value += value;
+        }
+    });
+});
+
+// Función para eliminar la última letra
+document.getElementById('delete-key').addEventListener('click', function() {
+    const textDisplay = document.getElementById('text-display');
+    textDisplay.value = textDisplay.value.slice(0, -1);
+});
+
+// Función para borrar todo el texto
+function clearText() {
+    document.getElementById('text-display').value = '';
+}
+
+</script>
